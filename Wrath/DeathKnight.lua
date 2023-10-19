@@ -1458,7 +1458,7 @@ spec:RegisterAbilities( {
         texture = 132152,
 
         usable = function()
-            if pet.ghoul.down then return false, "requires a living ghoul" end
+            if pet.down then return false, "requires a living ghoul" end
             return true
         end,
 
