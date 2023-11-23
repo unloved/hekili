@@ -3593,6 +3593,14 @@ all:RegisterAbility( "mjolnir_runestone", {
     item = 45931,
     aura = 65019
 })
+
+all:RegisterAbility( "saronite_bomb", {
+    cast = 0,
+    cooldown = 60,
+    gcd = "off",
+
+    item = 41119
+})
 all:RegisterAura( "mjolnir_runestone", {
     id = 65019,
     duration = 15,
