@@ -886,7 +886,7 @@ spec:RegisterAuras( {
     death_rune_6 = {
         duration = 30,
         max_stack = 1,
-    }
+    },
 } )
 
 local dodged_or_parried = 0

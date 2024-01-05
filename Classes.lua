@@ -2290,6 +2290,35 @@ all:RegisterAuras( {
         end,
     },
 
+    no_arms = {
+        generate = function( t )
+            local i = 1
+            local name, _, count, debuffType, duration, expirationTime, source, _, _, spellId = UnitDebuff( "player", i, "RAID" )
+
+            while( name ) do
+                if spellId == 676 then break end
+                if spellId == 51722 then break end
+                if spellId == 64044 then break end
+
+                i = i + 1
+                name, _, count, debuffType, duration, expirationTime, source, _, _, spellId = UnitDebuff( "player", i, "RAID" )
+            end
+
+            if name then
+                t.count = count > 0 and count or 1
+                t.expires = expirationTime > 0 and expirationTime or query_time + 5
+                t.applied = expirationTime > 0 and ( expirationTime - duration ) or query_time
+                t.caster = "nobody"
+                return
+            end
+
+            t.count = 0
+            t.expires = 0
+            t.applied = 0
+            t.caster = "nobody"
+        end,
+    },
+
     dispellable_disease = {
         generate = function( t )
             local i = 1
